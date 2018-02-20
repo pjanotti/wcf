@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RuntimeIdentifiers>win7-x64</RuntimeIdentifiers> <!-- My local build just have Windows at this point ubuntu14.04 -->
+  </PropertyGroup>
+
+  <!-- Modifications from CLITest.csproj per instructions at https://github.com/dotnet/corefx/blob/master/Documentation/project-docs/dogfooding.md -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Private.CoreFx.NETCoreApp" Version="4.5.0-preview2-26217-0" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PackageConflictPreferredPackages>Microsoft.Private.CoreFx.NETCoreApp;runtime.win-x64.Microsoft.Private.CoreFx.NETCoreApp.4.5.0-preview2-26217-0;$(PackageConflictPreferredPackages)</PackageConflictPreferredPackages>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="**\*.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Private.ServiceModel">
+      <Version>4.5.0-preview2-26209-01</Version>
+    </PackageReference>
+    <PackageReference Include="System.ServiceModel.Http">
+      <Version>4.5.0-preview2-26209-01</Version>
+    </PackageReference>
+    <PackageReference Include="System.ServiceModel.NetTcp">
+      <Version>4.5.0-preview2-26209-01</Version>
+    </PackageReference>
+    <PackageReference Include="System.ServiceModel.Primitives">
+      <Version>4.5.0-preview2-26209-01</Version>
+    </PackageReference>
+    <PackageReference Include="System.ServiceModel.Duplex">
+      <Version>4.5.0-preview2-26209-01</Version>
+    </PackageReference>
+    <PackageReference Include="System.ServiceModel.Security">
+      <Version>4.5.0-preview2-26209-01</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>
